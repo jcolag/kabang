@@ -70,7 +70,7 @@ function TIC()
         -- Check if the astronaut caught the mine
         if isCaught(astronautRotation, score, mineX, mineY) then
             sfx(2, "A#7", 2, 1, 15)
-        				score = score + 1
+            score = score + 1
             nextMine(score)
         elseif playerHit(astronautRotation, score, mineX, mineY) then
             sfx(1, "D-2", 16, 2, 15)
@@ -114,76 +114,76 @@ function restartGame()
     iInitial = 0
     initials = {}
     li = 1
-				music(0)
+    music(0)
 end
 
 -- Show splash screen
 function showSplash()
-	   -- Game over/splash screen
-	   music()
-				spr(1, SCREEN_WIDTH / 8 - 24, SCREEN_HEIGHT / 4, -1, 5)
-				circ(SCREEN_WIDTH / 5 * 3.5 - 32, SCREEN_HEIGHT / 2.5, 12, 14)
-	   print("K", SCREEN_WIDTH / 2 - 76, SCREEN_HEIGHT / 2 - 17, 2, false, 2)
-	   print("A", SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2 - 19, 3, false, 2)
-	   print("B", SCREEN_WIDTH / 2 - 52, SCREEN_HEIGHT / 2 - 20, 4, false, 2)
-	   print("A", SCREEN_WIDTH / 2 - 40, SCREEN_HEIGHT / 2 - 21, 12, false, 2)
-	   print("N", SCREEN_WIDTH / 2 - 28, SCREEN_HEIGHT / 2 - 20, 4, false, 2)
-	   print("G", SCREEN_WIDTH / 2 - 16, SCREEN_HEIGHT / 2 - 19, 3, false, 2)
-	   print("!", SCREEN_WIDTH / 2 - 4, SCREEN_HEIGHT / 2 - 17, 2, false, 2)
+    -- Game over/splash screen
+    music()
+    spr(1, SCREEN_WIDTH / 8 - 24, SCREEN_HEIGHT / 4, -1, 5)
+    circ(SCREEN_WIDTH / 5 * 3.5 - 32, SCREEN_HEIGHT / 2.5, 12, 14)
+    print("K", SCREEN_WIDTH / 2 - 76, SCREEN_HEIGHT / 2 - 17, 2, false, 2)
+    print("A", SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2 - 19, 3, false, 2)
+    print("B", SCREEN_WIDTH / 2 - 52, SCREEN_HEIGHT / 2 - 20, 4, false, 2)
+    print("A", SCREEN_WIDTH / 2 - 40, SCREEN_HEIGHT / 2 - 21, 12, false, 2)
+    print("N", SCREEN_WIDTH / 2 - 28, SCREEN_HEIGHT / 2 - 20, 4, false, 2)
+    print("G", SCREEN_WIDTH / 2 - 16, SCREEN_HEIGHT / 2 - 19, 3, false, 2)
+    print("!", SCREEN_WIDTH / 2 - 4, SCREEN_HEIGHT / 2 - 17, 2, false, 2)
 
-	   if games > 0 then
-	       print("GAME OVER", SCREEN_WIDTH / 2 - 65, SCREEN_HEIGHT / 2 - 4, 12)
-	       print("SCORE: " .. score, SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2 + 16, 12, true)
-	       print("PRESS  A  TO PLAY AGAIN", SCREEN_WIDTH / 2 - 98, SCREEN_HEIGHT / 2 + 32, 12)
-				else
-	       print("PRESS  A  TO PLAY", SCREEN_WIDTH / 2 - 85, SCREEN_HEIGHT / 2 + 32, 12)
-	   end
-	
-	   print("PRESS  B  TO LEARN MORE", SCREEN_WIDTH / 2 - 99, SCREEN_HEIGHT / 2 + 38, 12)
-	   print("PRESS X TO RESET SCORES", SCREEN_WIDTH / 2 - 99, SCREEN_HEIGHT / 2 + 48, 12)
-	   print("HIGH SCORES", SCREEN_WIDTH / 2 + 50, 24, 12)
+    if games > 0 then
+        print("GAME OVER", SCREEN_WIDTH / 2 - 65, SCREEN_HEIGHT / 2 - 4, 12)
+        print("SCORE: " .. score, SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2 + 16, 12, true)
+        print("PRESS  A  TO PLAY AGAIN", SCREEN_WIDTH / 2 - 98, SCREEN_HEIGHT / 2 + 32, 12)
+    else
+        print("PRESS  A  TO PLAY", SCREEN_WIDTH / 2 - 85, SCREEN_HEIGHT / 2 + 32, 12)
+    end
 
-	   for i=0, 9 do
-				    local n = pmem(i * 2 + 1)
-								local l1 = ltr(math.floor(n % 256))
-								local l2 = ltr(math.floor(n / 256 % 256))
-								local l3 = ltr(math.floor(n / 65536))
+    print("PRESS  B  TO LEARN MORE", SCREEN_WIDTH / 2 - 99, SCREEN_HEIGHT / 2 + 38, 12)
+    print("PRESS X TO RESET SCORES", SCREEN_WIDTH / 2 - 99, SCREEN_HEIGHT / 2 + 48, 12)
+    print("HIGH SCORES", SCREEN_WIDTH / 2 + 50, 24, 12)
 
-				    print(l1, SCREEN_WIDTH / 2 + 59, 40 + 8 * i, 12, true)
-				    print(l2, SCREEN_WIDTH / 2 + 66, 40 + 8 * i, 12, true)
-				    print(l3, SCREEN_WIDTH / 2 + 73, 40 + 8 * i, 12, true)
-								print(pmem(i * 2), SCREEN_WIDTH / 2 + 90, 40 + 8 * i, 12, true)
-				end
-	
-	   -- Check for game restart
-	   if btnp(4) then
-	       restartGame()
-	   elseif btnp(5) then
-	       about = true
-				elseif btnp(6) then
-				    resetScores()
-	   end
+    for i=0, 9 do
+        local n = pmem(i * 2 + 1)
+        local l1 = ltr(math.floor(n % 256))
+        local l2 = ltr(math.floor(n / 256 % 256))
+        local l3 = ltr(math.floor(n / 65536))
+
+        print(l1, SCREEN_WIDTH / 2 + 59, 40 + 8 * i, 12, true)
+        print(l2, SCREEN_WIDTH / 2 + 66, 40 + 8 * i, 12, true)
+        print(l3, SCREEN_WIDTH / 2 + 73, 40 + 8 * i, 12, true)
+        print(pmem(i * 2), SCREEN_WIDTH / 2 + 90, 40 + 8 * i, 12, true)
+    end
+  
+    -- Check for game restart
+    if btnp(4) then
+        restartGame()
+    elseif btnp(5) then
+        about = true
+    elseif btnp(6) then
+        resetScores()
+    end
 end
 
 -- Flash to white
 function makeFlash()
-	   cls(12)
+    cls(12)
     flash = flash - 1
 
     if flash == 0 then
-    				gameOver = true
+        gameOver = true
     end
 end
 
 -- Display licensing
 function showAbout()
-	   print("K", SCREEN_WIDTH / 2 - 40, SCREEN_HEIGHT / 2 - 64, 2, false, 2)
-	   print("A", SCREEN_WIDTH / 2 - 28, SCREEN_HEIGHT / 2 - 64, 3, false, 2)
-	   print("B", SCREEN_WIDTH / 2 - 16, SCREEN_HEIGHT / 2 - 64, 4, false, 2)
-	   print("A", SCREEN_WIDTH / 2 - 4, SCREEN_HEIGHT / 2 - 64, 12, false, 2)
-	   print("N", SCREEN_WIDTH / 2 + 8, SCREEN_HEIGHT / 2 - 64, 4, false, 2)
-	   print("G", SCREEN_WIDTH / 2 + 20, SCREEN_HEIGHT / 2 - 64, 3, false, 2)
-	   print("!", SCREEN_WIDTH / 2 + 32, SCREEN_HEIGHT / 2 - 64, 2, false, 2)
+    print("K", SCREEN_WIDTH / 2 - 40, SCREEN_HEIGHT / 2 - 64, 2, false, 2)
+    print("A", SCREEN_WIDTH / 2 - 28, SCREEN_HEIGHT / 2 - 64, 3, false, 2)
+    print("B", SCREEN_WIDTH / 2 - 16, SCREEN_HEIGHT / 2 - 64, 4, false, 2)
+    print("A", SCREEN_WIDTH / 2 - 4, SCREEN_HEIGHT / 2 - 64, 12, false, 2)
+    print("N", SCREEN_WIDTH / 2 + 8, SCREEN_HEIGHT / 2 - 64, 4, false, 2)
+    print("G", SCREEN_WIDTH / 2 + 20, SCREEN_HEIGHT / 2 - 64, 3, false, 2)
+    print("!", SCREEN_WIDTH / 2 + 32, SCREEN_HEIGHT / 2 - 64, 2, false, 2)
     print("by John Colagioia", SCREEN_WIDTH / 2 - 48, SCREEN_HEIGHT / 2 - 48, 13)
     print("BASED ON AN IDEA FROM", SCREEN_WIDTH / 2 - 62, SCREEN_HEIGHT / 2 - 20, 12)
     print("'Tesseract'", SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 - 4, 9)
@@ -191,9 +191,9 @@ function showAbout()
     print("AVAILABLE UNDER A CC-BY-SA 3.0 LICENSE", SCREEN_WIDTH / 2 - 74, SCREEN_HEIGHT / 2 + 18, 12, false, 1, true)
     print("PRESS  A  TO EXIT", SCREEN_WIDTH / 2 - 45, SCREEN_HEIGHT / 2 + 48, 12)
 
-	   if btnp(4) then
-				    about = false
-				end
+    if btnp(4) then
+        about = false
+    end
 end
 
 -- Display interface to get initials
@@ -242,7 +242,7 @@ function rspr(sx,sy,scale,angle,mx,my,mw,mh,key,useMap)
                { 1,-1, 0.999,0},
                {-1,1,  0,0.999},
                { 1,1,  0.999,0.999}}
-   	local rp = {} --  rotated points storage
+    local rp = {} --  rotated points storage
     --  the scale is mw ( map width ) * 4 * scale 
     --  mapwidth is * 4 because we actually want HALF width to center the image
     local scalex = (mw<<2) * scale
@@ -251,11 +251,11 @@ function rspr(sx,sy,scale,angle,mx,my,mw,mh,key,useMap)
     for p=1,#sv do 
         -- apply scale
         local _sx = sv[p][1] * scalex 
-      		local _sy = sv[p][2] * scaley
+        local _sy = sv[p][2] * scaley
         -- apply rotation
-		      local a = -angle
-    		  local rx = _sx * math.cos(a) - _sy * math.sin(a)
-		      local ry = _sx * math.sin(a) + _sy * math.cos(a)
+        local a = -angle
+        local rx = _sx * math.cos(a) - _sy * math.sin(a)
+        local ry = _sx * math.sin(a) + _sy * math.cos(a)
         -- apply transform
         sv[p][1] = rx + sx
         sv[p][2] = ry + sy
@@ -288,10 +288,10 @@ function drawAstronaut(angle, score)
     rspr(astronautX - ASTRONAUT_SIZE / 2, astronautY, 1, rAstro, 1, 0, 1, 1, 14, false)
     
     for i=1, score do
-    				local r = ASTRONAUT_SIZE / 2 + i * MINE_SIZE
-    				local x = astronautX - math.cos(rMines) * r - ASTRONAUT_SIZE / 2
-    				local y = astronautY + math.sin(rMines) * r
-    				circ(x, y, 1, 13)
+        local r = ASTRONAUT_SIZE / 2 + i * MINE_SIZE
+        local x = astronautX - math.cos(rMines) * r - ASTRONAUT_SIZE / 2
+        local y = astronautY + math.sin(rMines) * r
+        circ(x, y, 1, 13)
     end
 end
 
@@ -302,11 +302,11 @@ function starfield(games)
     local n = x * y + 31
 
     for i=1,50 do
-      circ(x, y, 0, 4)
-      n = (n * 1949 + 2969) % (SCREEN_WIDTH * SCREEN_HEIGHT)
-      x = math.floor(n % (SCREEN_WIDTH - 10)) + 5
-      n = (n * 2111 + 1709) % (SCREEN_WIDTH * SCREEN_HEIGHT)
-      y = math.floor(n % (SCREEN_HEIGHT - 10)) + 5
+        circ(x, y, 0, 4)
+        n = (n * 1949 + 2969) % (SCREEN_WIDTH * SCREEN_HEIGHT)
+        x = math.floor(n % (SCREEN_WIDTH - 10)) + 5
+        n = (n * 2111 + 1709) % (SCREEN_WIDTH * SCREEN_HEIGHT)
+        y = math.floor(n % (SCREEN_HEIGHT - 10)) + 5
     end
 end
 
@@ -314,30 +314,30 @@ end
 function isCaught(angle, score, mineX, mineY)
     local rAstro = math.rad(astronautRotation)
     local rMines = math.rad(astronautRotation - 90)
-				local r = ASTRONAUT_SIZE / 2 + score * MINE_SIZE
+    local r = ASTRONAUT_SIZE / 2 + score * MINE_SIZE
     local x = astronautX - math.cos(rMines) * r - ASTRONAUT_SIZE / 2
     local y = astronautY + math.sin(rMines) * r
 
-				return close(mineX, x, 2) and close(mineY, y, 2)
+    return close(mineX, x, 2) and close(mineY, y, 2)
 end
 
 -- Test if a mine has collided with the player
 function playerHit(angle, score, mineX, mineY)
     local rMines = math.rad(astronautRotation - 90)
-				local r = ASTRONAUT_SIZE / 2 + score * MINE_SIZE
+    local r = ASTRONAUT_SIZE / 2 + score * MINE_SIZE
     local x = - math.cos(rMines) * r
     local y = math.sin(rMines) * r
     local cx = astronautX - ASTRONAUT_SIZE / 2
     local cy = astronautY
 
-				for i=0,r do
-				    if close(mineX, cx, 2) and close(mineY, cy, 2) then
-												return true
-								end
+    for i=0,r do
+        if close(mineX, cx, 2) and close(mineY, cy, 2) then
+            return true
+        end
 
-								cx = cx + x / r
-								cy = cy + y / r
-				end
+        cx = cx + x / r
+        cy = cy + y / r
+    end
 
     return false
 end
@@ -346,7 +346,7 @@ end
 function nextMine(score)
     local maxH = ASTRONAUT_SIZE + score * 2 * MINE_SIZE
 
-	   mineX = SCREEN_WIDTH + 2
+    mineX = SCREEN_WIDTH + 2
     mineY = SCREEN_HEIGHT / 2 + math.floor(math.random() * maxH) - maxH / 2
 end
 
