@@ -167,6 +167,7 @@ end
 
 -- Flash to white
 function makeFlash()
+    music()
     cls(12)
     flash = flash - 1
 
