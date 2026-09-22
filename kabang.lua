@@ -296,6 +296,34 @@ function drawAstronaut(angle, score)
     end
 end
 
+-- Modify tempo or speed of a music track
+function change_ts(track, tempo, speed)
+    local base = 0x13E64
+    local track_base = base + track * 51
+    local a_tempo = track_base + 48
+    local a_speed = track_base + 50
+
+    if tempo > 0 then
+        local t = tempo - 150
+
+        if t < 0 then
+            t = t + 256
+        end
+
+        poke(a_tempo, t)
+    end
+
+    if speed > 0 then
+        local s = speed - 6
+
+        if s < 0 then
+            s = s + 256
+        end
+
+        poke(a_speed, s)
+    end
+end
+
 -- Draw pseudo-random stars
 function starfield(games)
     local x = SCREEN_WIDTH / 13 * math.floor(games % 13) + SCREEN_WIDTH / 23
