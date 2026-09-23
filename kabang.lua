@@ -39,14 +39,16 @@ function TIC()
     -- Clear screen
     cls(0)
 
-    if about then
+    if time() < 1500 then
+        showSplash()
+    elseif about then
         showAbout()
     elseif flash > 0 then
         makeFlash()
     elseif addInitials then
         getInitials(score, rank)
     elseif gameOver then
-        showSplash()
+        showTitles()
     else
         -- Check for input
         local left = btn(3)
@@ -119,6 +121,11 @@ end
 
 -- Show splash screen
 function showSplash()
+    spr(2, SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 - 32, -1, 1, 0, 0, 8, 8)
+end
+
+-- Show titles
+function showTitles()
     -- Game over/splash screen
     music()
     spr(1, SCREEN_WIDTH / 8 - 24, SCREEN_HEIGHT / 4, -1, 5)
