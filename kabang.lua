@@ -116,7 +116,7 @@ function restartGame()
     iInitial = 0
     initials = {}
     li = 1
-    music(0)
+    music(2)
 end
 
 -- Show splash screen
