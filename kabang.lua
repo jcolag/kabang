@@ -121,6 +121,10 @@ end
 
 -- Show splash screen
 function showSplash()
+    if time() < 10 then
+    	   music(1, -1, -1, false)
+    end
+
     spr(2, SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 - 32, -1, 1, 0, 0, 8, 8)
 end
 
