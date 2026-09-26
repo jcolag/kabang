@@ -33,6 +33,7 @@ local iInitial = 0
 local highScores = {}
 local li = 0
 local rank = -1
+local tempo = 150
 
 -- TIC-80 Function: Update
 function TIC()
@@ -116,7 +117,9 @@ function restartGame()
     iInitial = 0
     initials = {}
     li = 1
+    tempo = 150
     music(2)
+    change_ts(2, tempo, -1)
 end
 
 -- Show splash screen
@@ -392,6 +395,9 @@ function nextMine(score)
 
     mineX = SCREEN_WIDTH + 2
     mineY = SCREEN_HEIGHT / 2 + math.floor(math.random() * maxH) - maxH / 2
+
+    tempo = tempo + 2
+    change_ts(2, tempo, -1)
 end
 
 -- Check if a is less than tolerance pixels from b
