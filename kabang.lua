@@ -154,7 +154,7 @@ function showTitles()
     end
 
     print("PRESS  B  TO LEARN MORE", SCREEN_WIDTH / 2 - 99, SCREEN_HEIGHT / 2 + 38, 12)
-    print("PRESS X TO RESET SCORES", SCREEN_WIDTH / 2 - 99, SCREEN_HEIGHT / 2 + 48, 12)
+    print("PRESS X TO RESET SCORES", SCREEN_WIDTH / 2 - 101, SCREEN_HEIGHT / 2 + 48, 12)
     print("HIGH SCORES", SCREEN_WIDTH / 2 + 50, 24, 12)
 
     for i=0, 9 do
