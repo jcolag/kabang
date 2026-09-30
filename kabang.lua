@@ -3,7 +3,7 @@
 -- desc:    A Free Culture game about an astronaut collecting mines
 -- site:    https://john.colagioia.net
 -- license: AGPL 3.0 or later; CC-BY-SA 4.0 for sprites, sound effects, and music
--- version: 0.1
+-- version: 1.0
 -- script:  lua
 
 -- Game Constants
