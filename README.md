@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 John Colagioia <john@colagioia.net>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 # Kabang!
 
 When I finished reading [**Project:  Ballad**](https://john.colagioia.net/blog/2023/08/12/project-ballad-3.html) for my [Free Culture Book Club](https://john.colagioia.net/blog/tag/bookclub), I realized that the in-story video game **Kabang!**---featured in the short story *Tesseract*---could potentially work as a real video game.  In the noted post, I even said this.

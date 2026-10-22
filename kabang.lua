@@ -1,3 +1,7 @@
+-- SPDX-FileCopyrightText: 2023 John Colagioia <john@colagioia.net>
+--
+-- SPDX-License-Identifier: AGPL-3.0-or-later
+
 -- title:   Kabang!
 -- author:  John Colagioia (jcolag@colagioia.net)
 -- desc:    A Free Culture game about an astronaut collecting mines
